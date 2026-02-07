@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EqPad — 数式エディタ
 
-## Getting Started
+LaTeXに不慣れでも数式を簡単に作成し、Markdown・PNG・SVGとして出力できるWebアプリです。
 
-First, run the development server:
+## 環境構築
+
+### 必要な環境
+
+- Node.js 22 以上
+- npm
+
+### 開発環境のセットアップ
 
 ```bash
+# 依存関係をインストール
+npm install
+
+# 開発サーバーを起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) をブラウザで開く
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 本番環境のビルド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# ビルド
+npm run build
 
-## Learn More
+# ビルド後のアプリを起動
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Docker での実行
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Docker イメージのビルドと実行
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# イメージをビルド
+docker build -t eqpad .
 
-## Deploy on Vercel
+# コンテナを実行
+docker run -p 3000:3000 eqpad
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Docker Compose での実行
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# サービスを起動
+docker-compose up -d
+
+# ログを表示
+docker-compose logs -f
+
+# サービスを停止
+docker-compose down
+```
+
+## 環境変数
+
+`.env.example` をコピーして `.env.local` を作成し、必要な環境変数を設定してください。
+
+```bash
+cp .env.example .env.local
+```
+
+### 主な環境変数
+
+- `NEXT_PUBLIC_APP_URL`: アプリケーションのURL（OGP設定用）
+- `NODE_ENV`: 実行環境（development / production）
+
+## 機能
+
+- 数式エディタでLaTeX形式の数式を入力
+- LaTeXコードをコピー（展開版も対応）
+- Markdown形式でコピー（displayモード、inlineモード）
+- PNG形式で出力
+- 履歴機能で以前の数式を復元
+
+## セキュリティ
+
+以下のセキュリティ対策を実装しています：
+
+- HTTP Strict-Transport-Security (HSTS)
+- X-Content-Type-Options: nosniff
+- X-Frame-Options: SAMEORIGIN
+- Referrer-Policy: strict-origin-when-cross-origin
+
+## デプロイ
+
+### Vercel への デプロイ
+
+最も簡単な方法です。[Vercel Platform](https://vercel.com/new) で連携してデプロイできます。
+
+### その他のプラットフォーム
+
+- Docker コンテナとしてホスティングサービスにデプロイ可能
+- Node.js をサポートするプラットフォーム（Render、Railway、Flyなど）
+
+## 開発について
+
+### Linting
+
+```bash
+npm run lint
+```
+
+### 必要なライブラリ
+
+- **Next.js**: フレームワーク
+- **React**: UI ライブラリ
+- **Tailwind CSS**: スタイリング
+- **mathlive**: 数式エディタ
+- **html2canvas**: PNG 出力用
+
+## ライセンス
+
+[MIT](./LICENSE)
+
+## 参考資料
+
+- [Next.js ドキュメント](https://nextjs.org/docs)
+- [MathLive ドキュメント](https://cortexjs.io/docs/mathlive/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+**開発前のチェックリスト対応状況**
+
+- [x] セキュリティレスポンスヘッダ設定
+- [x] OGP設定
+- [x] アクセシビリティ対応
+- [x] ファビコン・apple-touch-icon設定
+- [x] robots.txt設定
+- [x] Docker対応
+- [x] 環境変数設定例

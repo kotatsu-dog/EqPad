@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { PngOptions } from '@/types';
 
 interface OutputPanelProps {
@@ -10,14 +10,14 @@ interface OutputPanelProps {
 }
 
 const CopyIcon = () => (
-  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" strokeWidth="2" />
     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" strokeWidth="2" />
   </svg>
 );
 
 const DownloadIcon = () => (
-  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" strokeWidth="2" />
     <polyline points="7 10 12 15 17 10" strokeWidth="2" />
     <line x1="12" y1="15" x2="12" y2="3" strokeWidth="2" />
@@ -25,18 +25,18 @@ const DownloadIcon = () => (
 );
 
 const CheckIcon = () => (
-  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <polyline points="20 6 9 17 4 12" strokeWidth="2" />
   </svg>
 );
 
 export default function OutputPanel({ getLatex, getLatexExpanded, onSaveToHistory }: OutputPanelProps) {
   const [copiedBtn, setCopiedBtn] = useState<string | null>(null);
-  const pngOptions: PngOptions = {
+  const pngOptions: PngOptions = useMemo(() => ({
     scale: 3,
     padding: 'large',
     background: 'white',
-  };
+  }), []);
 
   const flashCopied = useCallback((btnId: string) => {
     setCopiedBtn(btnId);
