@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useMemo } from 'react';
 import { PngOptions } from '@/types';
+import { useLang } from '@/lib/langContext';
 
 interface OutputPanelProps {
   getLatex: () => string;
@@ -32,6 +33,7 @@ const CheckIcon = () => (
 
 export default function OutputPanel({ getLatex, getLatexExpanded, onSaveToHistory }: OutputPanelProps) {
   const [copiedBtn, setCopiedBtn] = useState<string | null>(null);
+  const { t } = useLang();
   const pngOptions: PngOptions = useMemo(() => ({
     scale: 3,
     padding: 'large',
@@ -137,19 +139,19 @@ export default function OutputPanel({ getLatex, getLatexExpanded, onSaveToHistor
       <div className="flex flex-wrap gap-2">
         <button className={btnClass('latex')} onClick={copyLatex}>
           {copiedBtn === 'latex' ? <CheckIcon /> : <CopyIcon />}
-          {copiedBtn === 'latex' ? 'コピー済み' : 'LaTeX'}
+          {copiedBtn === 'latex' ? t('copied') : t('latex')}
         </button>
-        <button className={btnClass('latex-expanded')} onClick={copyLatexExpanded} title="すべてのマクロを展開した可搬性の高い形式">
+        <button className={btnClass('latex-expanded')} onClick={copyLatexExpanded} title={t('latexExpandedTitle')}>
           {copiedBtn === 'latex-expanded' ? <CheckIcon /> : <CopyIcon />}
-          {copiedBtn === 'latex-expanded' ? 'コピー済み' : 'LaTeX (展開)'}
+          {copiedBtn === 'latex-expanded' ? t('copied') : t('latexExpanded')}
         </button>
         <button className={btnClass('markdown')} onClick={copyMarkdown}>
           {copiedBtn === 'markdown' ? <CheckIcon /> : <CopyIcon />}
-          {copiedBtn === 'markdown' ? 'コピー済み' : 'Copy $$ Markdown'}
+          {copiedBtn === 'markdown' ? t('copied') : t('copyMarkdown')}
         </button>
         <button className={btnClass('inline')} onClick={copyInlineMarkdown}>
           {copiedBtn === 'inline' ? <CheckIcon /> : <CopyIcon />}
-          {copiedBtn === 'inline' ? 'コピー済み' : 'Copy $ Inline'}
+          {copiedBtn === 'inline' ? t('copied') : t('copyInline')}
         </button>
         <button className={btnClass('png')} onClick={downloadPng}>
           <DownloadIcon />

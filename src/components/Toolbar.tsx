@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useRef, useEffect, useState } from 'react';
+import { useLang } from '@/lib/langContext';
 import { ButtonCategory, ButtonDef } from '@/types';
 
 interface ToolbarProps {
@@ -78,13 +79,14 @@ function ToolbarButton({ btn, onInsert }: { btn: ButtonDef; onInsert: (latex: st
 
 export default function Toolbar({ categories, onInsert }: ToolbarProps) {
   const grouped = useMemo(() => categories, [categories]);
+  const { t } = useLang();
 
   return (
     <div className="toolbar space-y-2">
       {grouped.map((cat) => (
         <div key={cat.name}>
           <div className="text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1 px-1">
-            {cat.name}
+            {t(cat.name) || cat.name}
           </div>
           <div className="flex flex-wrap gap-1">
             {cat.buttons.map((btn) => (

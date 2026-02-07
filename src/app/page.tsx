@@ -7,6 +7,7 @@ import Toolbar from '@/components/Toolbar';
 import PackTabs from '@/components/PackTabs';
 import OutputPanel from '@/components/OutputPanel';
 import HistoryPanel from '@/components/HistoryPanel';
+import { useLang, type LanguageCode } from '@/lib/langContext';
 import { ButtonPack, HistoryEntry } from '@/types';
 import { getHistory, addToHistory, removeFromHistory, clearHistory } from '@/lib/history';
 
@@ -25,6 +26,7 @@ export default function Home() {
   const [showLatex, setShowLatex] = useState(false);
   const [historyEntries, setHistoryEntries] = useState<HistoryEntry[]>([]);
   const [showHistory, setShowHistory] = useState(false);
+  const { t, lang, setLang, languages } = useLang();
 
   useEffect(() => {
     setHistoryEntries(getHistory());
@@ -81,16 +83,31 @@ export default function Home() {
             <h1 className="text-lg font-bold text-gray-800 tracking-tight">
               <span className="text-blue-500">Eq</span>Pad
             </h1>
-            <span className="text-xs text-gray-300 hidden sm:inline">数式エディタ</span>
+            <span className="text-xs text-gray-300 hidden sm:inline">{t('title')}</span>
           </div>
           <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-400 hidden sm:inline">{t('language')}</span>
+              <select
+                className="text-xs bg-gray-50 border border-gray-200 rounded-full px-2 py-1 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                value={lang}
+                onChange={(event) => setLang(event.target.value as LanguageCode)}
+                aria-label={t('language')}
+              >
+                {languages.map((code) => (
+                  <option key={code} value={code}>
+                    {t(`lang.${code}`)}
+                  </option>
+                ))}
+              </select>
+            </div>
             <button
               onClick={() => setShowLatex(!showLatex)}
               className={`text-xs px-3 py-1.5 rounded-full transition-all ${
                 showLatex ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
               }`}
             >
-              LaTeX表示
+              {t('showLatex')}
             </button>
             <button
               onClick={() => setShowHistory(!showHistory)}
@@ -102,7 +119,7 @@ export default function Home() {
                 <circle cx="12" cy="12" r="10" strokeWidth="2" />
                 <polyline points="12 6 12 12 16 14" strokeWidth="2" />
               </svg>
-              履歴
+              {t('history')}
               {historyEntries.length > 0 && (
                 <span className="ml-0.5 bg-blue-400 text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center">
                   {historyEntries.length}
@@ -120,14 +137,14 @@ export default function Home() {
             {/* Editor Area */}
             <section className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               <div className="flex items-center justify-between px-5 py-2.5 border-b border-gray-50">
-                <span className="text-xs font-medium text-gray-400">数式エディタ</span>
+                <span className="text-xs font-medium text-gray-400">{t('editor')}</span>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleClearEditor}
                     className="text-xs text-gray-300 hover:text-red-400 transition-colors px-2 py-1"
-                    title="数式をクリア"
+                    title={t('clearEditorTitle')}
                   >
-                    クリア
+                    {t('clearEditor')}
                   </button>
                 </div>
               </div>
@@ -147,13 +164,13 @@ export default function Home() {
 
             {/* Output Panel */}
             <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-              <div className="text-xs font-medium text-gray-400 mb-3">出力</div>
+              <div className="text-xs font-medium text-gray-400 mb-3">{t('output')}</div>
               <OutputPanel getLatex={getLatex} getLatexExpanded={getLatexExpanded} onSaveToHistory={handleSaveToHistory} />
             </section>
 
             {/* Core Toolbar */}
             <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-              <div className="text-xs font-medium text-gray-400 mb-3">コアボタン</div>
+              <div className="text-xs font-medium text-gray-400 mb-3">{t('coreButtons')}</div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
                 {(coreData as ButtonPack).categories.map((cat) => (
                   <div key={cat.name}>
@@ -165,7 +182,7 @@ export default function Home() {
 
             {/* Pack Tabs */}
             <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-              <div className="text-xs font-medium text-gray-400 mb-3">テンプレート</div>
+              <div className="text-xs font-medium text-gray-400 mb-3">{t('templates')}</div>
               <PackTabs
                 packs={packs}
                 activePackIndex={activePackIndex}
@@ -184,7 +201,7 @@ export default function Home() {
                     <circle cx="12" cy="12" r="10" strokeWidth="2" />
                     <polyline points="12 6 12 12 16 14" strokeWidth="2" />
                   </svg>
-                  最近の数式
+                  {t('recentEquations')}
                 </div>
                 <HistoryPanel
                   entries={historyEntries}
@@ -201,11 +218,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-100 mt-12 py-6">
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-xs text-gray-300">
-          <span>EqPad — LaTeX数式エディタ</span>
+          <span>{t('footerTitle')}</span>
           <div className="flex items-center gap-4">
-            <span>Tab: 穴巡回</span>
-            <span>Ctrl+Z: 元に戻す</span>
-            <span>矢印キー: 移動</span>
+            <span>{t('hintTab')}</span>
+            <span>{t('hintUndo')}</span>
+            <span>{t('hintArrows')}</span>
           </div>
         </div>
       </footer>

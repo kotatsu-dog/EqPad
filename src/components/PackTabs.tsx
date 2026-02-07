@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { ButtonPack } from '@/types';
 import Toolbar from './Toolbar';
+import { useLang } from '@/lib/langContext';
 
 interface PackTabsProps {
   packs: ButtonPack[];
@@ -14,6 +15,7 @@ interface PackTabsProps {
 export default function PackTabs({ packs, activePackIndex, onChangeTab, onInsert }: PackTabsProps) {
   const activePack = packs[activePackIndex];
   const [expanded, setExpanded] = useState(true);
+  const { t } = useLang();
 
   return (
     <div>
@@ -29,7 +31,7 @@ export default function PackTabs({ packs, activePackIndex, onChangeTab, onInsert
             onMouseDown={(e) => e.preventDefault()}
             onClick={() => onChangeTab(i)}
           >
-            {pack.label}
+            {t(pack.label) || pack.label}
           </button>
         ))}
         <button
@@ -43,7 +45,7 @@ export default function PackTabs({ packs, activePackIndex, onChangeTab, onInsert
           >
             <polyline points="6 9 12 15 18 9" strokeWidth="2" />
           </svg>
-          {expanded ? '折りたたむ' : '展開する'}
+          {expanded ? t('collapse') : t('expand')}
         </button>
       </div>
       {expanded && activePack && (
