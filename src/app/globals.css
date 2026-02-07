@@ -1,26 +1,95 @@
 @import "tailwindcss";
+@import "mathlive/static.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --background: #fafafa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* MathLive overrides */
+math-field {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  --caret-color: #3b82f6;
+  --selection-background-color: rgba(59, 130, 246, 0.15);
+  --contains-highlight-background-color: transparent;
+  --smart-fence-color: #3b82f6;
+  --placeholder-color: #94a3b8;
+  --placeholder-opacity: 0.6;
+  font-size: 28px;
+}
+
+math-field::part(menu-toggle) {
+  display: none;
+}
+
+math-field:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Toolbar button math rendering */
+.toolbar-btn .ML__mathlive {
+  pointer-events: none;
+}
+
+.toolbar-btn .btn-icon .ML__mathlive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure MathLive rendered elements inside buttons don't clip */
+.toolbar-btn .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* History item rendered math */
+.history-preview .ML__mathlive {
+  pointer-events: none;
 }

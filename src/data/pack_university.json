@@ -1,0 +1,63 @@
+{
+  "label": "大学",
+  "categories": [
+    {
+      "name": "線形代数",
+      "buttons": [
+        { "label": "行列式", "icon": "\\det(A)", "latex": "\\det(#0)=#1" },
+        { "label": "逆行列", "icon": "A^{-1}", "latex": "#0^{-1}" },
+        { "label": "転置", "icon": "A^T", "latex": "#0^{T}" },
+        { "label": "トレース", "icon": "\\mathrm{tr}(A)", "latex": "\\mathrm{tr}(#0)" },
+        { "label": "ランク", "icon": "\\mathrm{rank}(A)", "latex": "\\mathrm{rank}(#0)" },
+        { "label": "固有値", "icon": "\\lambda", "latex": "#0\\vec{v}=\\lambda\\vec{v}" }
+      ]
+    },
+    {
+      "name": "内積空間",
+      "buttons": [
+        { "label": "内積", "icon": "\\langle x,y\\rangle", "latex": "\\langle#0,#1\\rangle" },
+        { "label": "ノルム", "icon": "\\|x\\|", "latex": "\\left\\|#0\\right\\|" },
+        { "label": "直交", "icon": "\\perp", "latex": "#0\\perp#1" }
+      ]
+    },
+    {
+      "name": "集合・論理",
+      "buttons": [
+        { "label": "部分集合", "icon": "⊆", "latex": "#0\\subseteq#1", "iconType": "text" },
+        { "label": "差集合", "icon": "A∖B", "latex": "#0\\setminus#1", "iconType": "text" },
+        { "label": "和集合", "icon": "∪", "latex": "#0\\cup#1", "iconType": "text" },
+        { "label": "積集合", "icon": "∩", "latex": "#0\\cap#1", "iconType": "text" },
+        { "label": "属する", "icon": "∈", "latex": "#0\\in#1", "iconType": "text" },
+        { "label": "属さない", "icon": "∉", "latex": "#0\\notin#1", "iconType": "text" },
+        { "label": "空集合", "icon": "∅", "latex": "\\emptyset", "iconType": "text" },
+        { "label": "全称", "icon": "∀", "latex": "\\forall#0", "iconType": "text" },
+        { "label": "存在", "icon": "∃", "latex": "\\exists#0", "iconType": "text" },
+        { "label": "⇒", "icon": "⇒", "latex": "\\Rightarrow", "iconType": "text" },
+        { "label": "⇔", "icon": "⇔", "latex": "\\Leftrightarrow", "iconType": "text" },
+        { "label": "¬", "icon": "¬", "latex": "\\neg#0", "iconType": "text" }
+      ]
+    },
+    {
+      "name": "解析（大学）",
+      "buttons": [
+        { "label": "ε-δ", "icon": "\\varepsilon\\text{-}\\delta", "latex": "\\forall\\varepsilon>0,\\,\\exists\\delta>0:\\,|#0|<\\delta\\Rightarrow|#1|<\\varepsilon" },
+        { "label": "重積分", "icon": "\\iint", "latex": "\\iint_{#0}#1\\,d#2\\,d#3" },
+        { "label": "三重積分", "icon": "\\iiint", "latex": "\\iiint_{#0}#1\\,d#2\\,d#3\\,d#4" },
+        { "label": "周回積分", "icon": "\\oint", "latex": "\\oint_{#0}#1\\,d#2" },
+        { "label": "∇", "icon": "\\nabla", "latex": "\\nabla#0" },
+        { "label": "div", "icon": "\\mathrm{div}", "latex": "\\mathrm{div}\\,#0" },
+        { "label": "rot", "icon": "\\mathrm{rot}", "latex": "\\mathrm{rot}\\,#0" },
+        { "label": "偏微分", "icon": "\\frac{\\partial f}{\\partial x}", "latex": "\\frac{\\partial #0}{\\partial #1}" }
+      ]
+    },
+    {
+      "name": "その他",
+      "buttons": [
+        { "label": "テキスト", "icon": "\\text{abc}", "latex": "\\text{#0}" },
+        { "label": "太字", "icon": "\\mathbf{x}", "latex": "\\mathbf{#0}" },
+        { "label": "カリグラフ", "icon": "\\mathcal{F}", "latex": "\\mathcal{#0}" },
+        { "label": "黒板太字", "icon": "\\mathbb{R}", "latex": "\\mathbb{#0}" }
+      ]
+    }
+  ]
+}

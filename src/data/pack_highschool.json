@@ -1,0 +1,55 @@
+{
+  "label": "高校",
+  "categories": [
+    {
+      "name": "微分・積分",
+      "buttons": [
+        { "label": "微分", "icon": "\\frac{d}{dx}", "latex": "\\frac{d}{dx}\\left(#0\\right)" },
+        { "label": "2階微分", "icon": "\\frac{d^2}{dx^2}", "latex": "\\frac{d^2}{dx^2}\\left(#0\\right)" },
+        { "label": "導関数", "icon": "f'(x)", "latex": "f'(#0)" },
+        { "label": "定積分", "icon": "\\int_a^b", "latex": "\\int_{#0}^{#1}#2\\,dx" },
+        { "label": "不定積分", "icon": "\\int dx", "latex": "\\int #0\\,dx" }
+      ]
+    },
+    {
+      "name": "数列",
+      "buttons": [
+        { "label": "a_n=", "icon": "a_n", "latex": "a_{n}=#0" },
+        { "label": "S_n=", "icon": "S_n", "latex": "S_{n}=\\sum_{k=1}^{n}#0" },
+        { "label": "漸化式", "icon": "a_{n+1}", "latex": "a_{n+1}=#0" },
+        { "label": "一般項", "icon": "a_n=f(n)", "latex": "a_{n}=#0\\quad(n=#1)" },
+        { "label": "等差数列", "icon": "a+(n-1)d", "latex": "a_{n}=#0+(n-1)\\cdot#1" },
+        { "label": "等比数列", "icon": "ar^{n-1}", "latex": "a_{n}=#0\\cdot#1^{n-1}" }
+      ]
+    },
+    {
+      "name": "確率・統計",
+      "buttons": [
+        { "label": "P(A)", "icon": "P(A)", "latex": "P(#0)=#1" },
+        { "label": "P(A∩B)", "icon": "P(A\\cap B)", "latex": "P(#0\\cap#1)=#2" },
+        { "label": "P(A|B)", "icon": "P(A|B)", "latex": "P(#0\\mid#1)=#2" },
+        { "label": "nCr", "icon": "\\binom{n}{r}", "latex": "\\binom{#0}{#1}" },
+        { "label": "nPr", "icon": "{}_nP_r", "latex": "{}_{#0}P_{#1}" },
+        { "label": "n!", "icon": "n!", "latex": "#0!" }
+      ]
+    },
+    {
+      "name": "三角関数",
+      "buttons": [
+        { "label": "sin²+cos²=1", "icon": "\\sin^2+\\cos^2", "latex": "\\sin^{2}#0+\\cos^{2}#0=1" },
+        { "label": "加法定理sin", "icon": "\\sin(a+b)", "latex": "\\sin(#0+#1)=\\sin#0\\cos#1+\\cos#0\\sin#1" },
+        { "label": "加法定理cos", "icon": "\\cos(a+b)", "latex": "\\cos(#0+#1)=\\cos#0\\cos#1-\\sin#0\\sin#1" },
+        { "label": "tan", "icon": "\\tan\\theta", "latex": "\\tan#0=\\frac{\\sin#0}{\\cos#0}" }
+      ]
+    },
+    {
+      "name": "ベクトル・図形",
+      "buttons": [
+        { "label": "内積", "icon": "\\vec{a}\\cdot\\vec{b}", "latex": "\\vec{#0}\\cdot\\vec{#1}" },
+        { "label": "ベクトルAB", "icon": "\\overrightarrow{\\!AB}", "latex": "\\overrightarrow{#0}" },
+        { "label": "絶対値", "icon": "|\\vec{a}|", "latex": "\\left|\\vec{#0}\\right|" },
+        { "label": "角度", "icon": "\\angle", "latex": "\\angle#0" }
+      ]
+    }
+  ]
+}

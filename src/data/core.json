@@ -1,0 +1,73 @@
+{
+  "label": "コア",
+  "categories": [
+    {
+      "name": "構造",
+      "buttons": [
+        { "label": "分数", "icon": "\\tfrac{a}{b}", "latex": "\\frac{#0}{#1}", "shortcut": "Ctrl+/" },
+        { "label": "累乗", "icon": "x^{n}", "latex": "#0^{#1}" },
+        { "label": "下付き", "icon": "x_{n}", "latex": "#0_{#1}" },
+        { "label": "上下付き", "icon": "x_{n}^{m}", "latex": "#0_{#1}^{#2}" },
+        { "label": "平方根", "icon": "\\sqrt{x}", "latex": "\\sqrt{#0}", "shortcut": "Ctrl+R" },
+        { "label": "n乗根", "icon": "\\sqrt[n]{x}", "latex": "\\sqrt[#0]{#1}" },
+        { "label": "丸括弧", "icon": "(x)", "latex": "\\left(#0\\right)" },
+        { "label": "角括弧", "icon": "[x]", "latex": "\\left[#0\\right]" },
+        { "label": "波括弧", "icon": "\\{x\\}", "latex": "\\left\\{#0\\right\\}" }
+      ]
+    },
+    {
+      "name": "解析",
+      "buttons": [
+        { "label": "Σ", "icon": "\\sum", "latex": "\\sum_{#0}^{#1}#2", "shortcut": "Ctrl+S" },
+        { "label": "∫", "icon": "\\int", "latex": "\\int_{#0}^{#1}#2\\,d#3", "shortcut": "Ctrl+I" },
+        { "label": "lim", "icon": "\\lim", "latex": "\\lim_{#0\\to#1}#2", "shortcut": "Ctrl+L" },
+        { "label": "∏", "icon": "\\prod", "latex": "\\prod_{#0}^{#1}#2" },
+        { "label": "偏微分", "icon": "\\partial", "latex": "\\frac{\\partial #0}{\\partial #1}" }
+      ]
+    },
+    {
+      "name": "関数",
+      "buttons": [
+        { "label": "log", "icon": "\\log", "latex": "\\log_{#0}#1" },
+        { "label": "ln", "icon": "\\ln", "latex": "\\ln#0" },
+        { "label": "sin", "icon": "\\sin", "latex": "\\sin#0" },
+        { "label": "cos", "icon": "\\cos", "latex": "\\cos#0" },
+        { "label": "tan", "icon": "\\tan", "latex": "\\tan#0" },
+        { "label": "exp", "icon": "e^x", "latex": "e^{#0}" }
+      ]
+    },
+    {
+      "name": "比較・記号",
+      "buttons": [
+        { "label": "=", "icon": "=", "latex": "=", "iconType": "text" },
+        { "label": "≠", "icon": "≠", "latex": "\\neq", "iconType": "text" },
+        { "label": "≤", "icon": "≤", "latex": "\\leq", "iconType": "text" },
+        { "label": "≥", "icon": "≥", "latex": "\\geq", "iconType": "text" },
+        { "label": "<", "icon": "<", "latex": "<", "iconType": "text" },
+        { "label": ">", "icon": ">", "latex": ">", "iconType": "text" },
+        { "label": "±", "icon": "±", "latex": "\\pm", "iconType": "text" },
+        { "label": "∞", "icon": "∞", "latex": "\\infty", "iconType": "text" },
+        { "label": "…", "icon": "⋯", "latex": "\\cdots", "iconType": "text" }
+      ]
+    },
+    {
+      "name": "形・装飾",
+      "buttons": [
+        { "label": "|x|", "icon": "|x|", "latex": "\\left|#0\\right|" },
+        { "label": "‖x‖", "icon": "\\|x\\|", "latex": "\\left\\|#0\\right\\|" },
+        { "label": "ベクトル", "icon": "\\vec{a}", "latex": "\\vec{#0}" },
+        { "label": "ハット", "icon": "\\hat{a}", "latex": "\\hat{#0}" },
+        { "label": "バー", "icon": "\\bar{a}", "latex": "\\bar{#0}" },
+        { "label": "ドット", "icon": "\\dot{a}", "latex": "\\dot{#0}" }
+      ]
+    },
+    {
+      "name": "構造体",
+      "buttons": [
+        { "label": "場合分け", "icon": "\\begin{cases}...\\end{cases}", "latex": "\\begin{cases}#0 & #1 \\\\ #2 & #3\\end{cases}" },
+        { "label": "2×2行列", "icon": "\\begin{pmatrix}...\\end{pmatrix}", "latex": "\\begin{pmatrix}#0 & #1 \\\\ #2 & #3\\end{pmatrix}" },
+        { "label": "3×3行列", "icon": "\\begin{pmatrix}...\\end{pmatrix}", "latex": "\\begin{pmatrix}#0 & #1 & #2 \\\\ #3 & #4 & #5 \\\\ #6 & #7 & #8\\end{pmatrix}" }
+      ]
+    }
+  ]
+}
