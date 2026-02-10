@@ -41,6 +41,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#3b82f6" />
+        <meta name="google-site-verification" content="FaLGMLMXbGm367zl_hyT1iP_MXiTNj0AjemnDWR8ojU" />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <LangProvider>{children}</LangProvider>
